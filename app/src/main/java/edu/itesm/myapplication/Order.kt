@@ -7,5 +7,6 @@ data class Order(var subtotal: Int, var tipPercentage: Double){
     var tip : Double = tipPercentage * subtotal
     var total : Double = subtotal + smallOderFee + serviceFee + deliveryFee + tip
 
+
     override fun toString(): String = "De $subtotal, el total es: $total"
 }
