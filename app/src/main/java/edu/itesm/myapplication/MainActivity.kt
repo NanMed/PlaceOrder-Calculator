@@ -11,6 +11,7 @@ import kotlin.math.roundToInt
 class MainActivity : AppCompatActivity() {
     val orders = mutableListOf<Order>()
     var tip : Double = 0.0
+    var hola = "hola2"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
