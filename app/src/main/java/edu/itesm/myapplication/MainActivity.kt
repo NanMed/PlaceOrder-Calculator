@@ -2,6 +2,8 @@ package edu.itesm.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -11,24 +13,19 @@ import kotlin.math.roundToInt
 class MainActivity : AppCompatActivity() {
     val orders = mutableListOf<Order>()
     var tip : Double = 0.0
-    var prueba = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
     }
 
     fun calcularTotal(tipSelected: Double){
-        val order = Order(subtotal.text.toString().toInt(),tipSelected)
-        totalShow.text="${order.total}"  // Esta muestra el total en la app
-        sOFNum.text="${order.smallOderFee}" // imprime los cargos
-        dFNum.text="${order.deliveryFee}"
-        sFNum.text="${order.serviceFee}"
+        val order = Order(subtotal.text.toString().toDouble(), tipSelected)
+        setOrderValues(order)
         Log.i("edu.itesm.myapplication", order.toString())
         orders.add(order)
         Log.i("edu.itesm.myapplication", orders.toString())
         Log.i("edu.itesm.myapplication", orders.sumBy{ it.total.roundToInt() }.toString())
-
     }
 
     fun butonTip(view: View){
@@ -53,21 +50,25 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        calcularTotal(tip.toDouble())
+        calcularTotal(tip)
         placeOrder()
 
+    }
+
+    fun setOrderValues(order: Order){
+        totalShow.text=" $ ${order.total}"  // Esta muestra el total en la app
+        sOFNum.text=" $ ${order.smallOderFee}" // imprime los cargos
+        dFNum.text=" $ ${order.deliveryFee}"
+        sFNum.text="$ ${order.serviceFee}"
     }
 
     fun placeOrder(){
         placeOrderButton.setOnClickListener {
             subtotal.setText("")
-            sOFNum.text = "0"
-            sFNum.text="0"
-            dFNum.text="0"
-            totalShow.text="0"
-
-
-
+            sOFNum.text = "$0"
+            sFNum.text="$0"
+            dFNum.text="$0"
+            totalShow.text="$0"
         }
     }
 
