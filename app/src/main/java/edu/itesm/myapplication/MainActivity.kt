@@ -1,5 +1,6 @@
 package edu.itesm.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -69,6 +70,10 @@ class MainActivity : AppCompatActivity() {
             sFNum.text="$0"
             dFNum.text="$0"
             totalShow.text="$0"
+            val intento = Intent(this, ResultadoActivity::class.java)
+            //intento.putExtra("tip", tip)
+            //intento.putExtra("subtotal", subtotal.text.toString().toDouble())
+            startActivity(intento)
         }
     }
 
