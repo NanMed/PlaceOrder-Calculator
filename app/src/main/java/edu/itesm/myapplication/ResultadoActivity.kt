@@ -23,10 +23,12 @@ class ResultadoActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = totalAdapter
 
+        var arrayTips = doubleArrayOf(0.0,0.10,0.15,0.20,0.25)
+
         for (i in 0..30){
             //val fecha = LocalDateTime.now()
             val subtotal = String.format("%.2f", Random.nextDouble(until = 1000.00)).toDouble()
-            val order = Order(subtotal, 0.15)
+            val order = Order(subtotal, arrayTips.random())
             totales.add(order)
         }
     }
