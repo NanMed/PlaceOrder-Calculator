@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        
     }
 
     fun calcularTotal(tipSelected: Double){
