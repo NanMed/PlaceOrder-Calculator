@@ -24,7 +24,7 @@ class TotalAdapter (private val totales: List<Order>)
     override fun onBindViewHolder(holder: TotalViewHolder, position: Int) {
         val dato = totales[position]
         val total = dato.total
-        holder.fecha.text = "Marzo 7, 2021"
+        holder.fecha.text = dato.fechaAc.toString()
         holder.total.text = "Total: $total"
     }
 

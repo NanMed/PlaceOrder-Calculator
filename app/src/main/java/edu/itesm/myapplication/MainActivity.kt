@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import java.time.LocalDateTime
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -23,7 +24,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calcularTotal(tipSelected: Double){
-        val order = Order(subtotal.text.toString().toDouble(), tipSelected)
+        val fecha = LocalDateTime.now()
+        val order = Order(subtotal.text.toString().toDouble(), tipSelected, fecha)
         setOrderValues(order)
         Log.i("edu.itesm.myapplication", order.toString())
         orders.add(order)
@@ -54,7 +56,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         calcularTotal(tip)
-        placeOrder()
 
     }
 
@@ -63,20 +64,24 @@ class MainActivity : AppCompatActivity() {
         sOFNum.text=" $ ${order.smallOderFee}" // imprime los cargos
         dFNum.text=" $ ${order.deliveryFee}"
         sFNum.text="$ ${order.serviceFee}"
+
+
+        placeOrderButton.setOnClickListener {
+            val total = order.total
+            val intento = Intent(this, ResultadoActivity::class.java)
+            intento.putExtra("total", total)
+            startActivity(intento)
+        }
     }
 
-    fun placeOrder(){
+    /*fun placeOrder(){
         placeOrderButton.setOnClickListener {
             subtotal.setText("")
             sOFNum.text = "$0"
             sFNum.text="$0"
             dFNum.text="$0"
             totalShow.text="$0"
-            val intento = Intent(this, ResultadoActivity::class.java)
-            //intento.putExtra("tip", tip)
-            //intento.putExtra("subtotal", subtotal.text.toString().toDouble())
-            startActivity(intento)
         }
-    }
+    }*/
 
 }
