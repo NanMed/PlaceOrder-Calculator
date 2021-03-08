@@ -19,8 +19,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
-
         window.setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -30,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         fun startCountDown() {
             var timer1 = object : CountDownTimer(5000, 1000) {
                 override fun onFinish() {
-                    countdown.text = "done!"
+                    countdown.text = "Go!"
                 }
                 override fun onTick(millisUntilFinished: Long) {
 
@@ -38,16 +36,9 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
             timer1.start()
-
         }
 
         startCountDown()
-
-
-
-
-
-
 
         Handler().postDelayed({
             val intento = Intent(this, MainActivity::class.java)
@@ -55,7 +46,5 @@ class HomeActivity : AppCompatActivity() {
             finish()
 
         }, 5000)
-
-
     }
 }

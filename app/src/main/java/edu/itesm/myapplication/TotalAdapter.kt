@@ -24,8 +24,9 @@ class TotalAdapter (private val totales: List<Order>)
     override fun onBindViewHolder(holder: TotalViewHolder, position: Int) {
         val dato = totales[position]
         val total = dato.total
+        val subtotal = dato.subtotal
         holder.fecha.text = dato.fechaAc.toString()
-        holder.total.text = "Total: $total"
+        holder.total.text = "Subtotal: $subtotal. Total: $total"
     }
 
     // Cuantos elemntos tiene la lista

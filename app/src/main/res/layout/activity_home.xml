@@ -21,9 +21,10 @@
 
     <TextView
         android:id="@+id/countdown"
-        android:layout_width="98dp"
-        android:layout_height="71dp"
-        android:text="TextView"
+        android:layout_width="42dp"
+        android:layout_height="35dp"
+        android:text="0"
+        android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

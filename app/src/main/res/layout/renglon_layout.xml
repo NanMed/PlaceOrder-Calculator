@@ -26,7 +26,7 @@
                 </TextView>
                 <TextView
                     android:id="@+id/total"
-                    android:text="Total: $132.98"
+                    android:text="Subtotal: $132.98. Total: $132.98 "
                     android:textSize="15dp"
                     android:textStyle="italic"
                     android:textColor="@color/black"
